@@ -44,38 +44,18 @@ class Planet {
         let x = this.x * SCALE + window.innerWidth / 2;
         let y = this.y * SCALE + window.innerHeight / 2;
 
-        
-        console.log(this.orbit);
-        
-       
-
-        //context.moveTo(this.orbit[3][0], this.orbit[3][1]);
-       
-        // for (var i = 0; i < this.orbit.length; i++) {
-
-        //     test.lineTo(this.orbit[i][0]*SCALE + window.innerWidth / 2, this.orbit[i][1]*SCALE + window.innerHeight / 2);
-
-        // }
         context.beginPath();
         context.moveTo(this.orbit[0][0]*SCALE + window.innerWidth / 2, this.orbit[0][1]*SCALE + window.innerHeight / 2);
         
-        
         for (var i = 5; i < this.orbit.length; i++) {
-
             context.lineTo(this.orbit[i][0]*SCALE + window.innerWidth / 2, this.orbit[i][1]*SCALE + window.innerHeight / 2);
-
         }
         
         context.stroke();
-        context.lineWidth = 2;
+        context.lineWidth = 1;
 
-
-        
-      
-        
         context.beginPath();
 
-        
         context.fillStyle = this.colour;
         context.strokeStyle = PLANET_OUTLINE;
         context.lineWidth = 2;
@@ -155,5 +135,4 @@ function frame() {
         planet.update_position(planets); // Calculates the forces between the current planet and all the others
         planet.draw();
     });
-    
 }
